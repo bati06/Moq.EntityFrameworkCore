@@ -13,6 +13,6 @@
 
         public bool AccountLocked { get; set; }
 
-        public virtual List<Role> Roles { get; set; }
+        //public virtual List<Role> Roles { get; set; }
     }
 }

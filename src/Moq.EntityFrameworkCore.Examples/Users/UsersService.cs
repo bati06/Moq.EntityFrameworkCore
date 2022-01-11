@@ -17,6 +17,11 @@
             this.usersContext = usersContext;
         }
 
+        public IList<User> GetLockedUsersStoredProcedure()
+        {
+            return this.usersContext.Users.FromSqlRaw("SELECT Id, Login, Name, Surname, AccountLocked FROM Users").ToList();
+        }
+
         public IList<User> GetLockedUsers()
         {
             return this.usersContext.Users.Where(x => x.AccountLocked).ToList();

@@ -27,7 +27,7 @@
             var usersService = new UsersService(userContextMock.Object);
 
             // Act
-            var lockedUsers = usersService.GetLockedUsers();
+            var lockedUsers = usersService.GetLockedUsersStoredProcedure();
 
             // Assert
             Assert.Equal(new List<User> { lockedUser }, lockedUsers);

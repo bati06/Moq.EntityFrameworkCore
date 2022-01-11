@@ -22,6 +22,11 @@
 
         public IQueryable<TElement> CreateQuery<TElement>(Expression expression)
         {
+            if (expression is MethodCallExpression mce && mce.Method.Name == "FromSqlOnQueryable")
+            {
+                expression = mce.Arguments[0];
+            }
+
             return new InMemoryAsyncEnumerable<TElement>(expression);
         }
 
